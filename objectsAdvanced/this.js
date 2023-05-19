@@ -9,14 +9,15 @@ const user = {
     }
 }
 
-// O metodo bind
-// Esse metodo "amarra" o contexto de uma função a um determinado objeto
+// O método bind
+// Esse método "amarra" o contexto de uma função a um determinado objeto
 
 const exibir = user.exibirInfos
 exibir()
-// Aqui a funcao exibir esta referenciando a funcao exibirInfos do objeto acima, mas o this não esta determinado por isso mostra undefined
+// Aqui a função exibir esta referenciando a função exibirInfos do objeto acima, mas o this não está determinado por isso mostra undefined
 
 const exibirBind = exibir.bind(user)
 exibirBind()
-// Aqui esou amarrando exibir ao contexto de user e atribuindo isso a variavel exibirBind, portanto a funcao passa a referenciar as propriedades do objeto user
-// Como não fiz o bind com a const exibir ao chamar a funcao exibir() continuara exibindo undefined
+// Aqui estou amarrando exibir ao contexto de user e atribuindo isso a variável exibirBind, portanto a
+// função passa a referenciar as propriedades do objeto user
+// Como não fiz o bind com a const exibir ao chamar a função exibir() continuara exibindo undefined
