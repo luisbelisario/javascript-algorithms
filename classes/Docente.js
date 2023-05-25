@@ -1,6 +1,6 @@
 import User from "./User.js";
 
-class Docente extends User {
+export default class Docente extends User {
 
     constructor(nome, email, dataNascimento, role = 'docente', ativo = true) {
         super(nome, email, dataNascimento, role, ativo)
