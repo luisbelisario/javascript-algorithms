@@ -3,22 +3,47 @@ export default class User {
     // tenho que declarar esse atributo na classe
 
     #nome
-    // esse atributo será privado
+    #email
+    // esses atributos serão privados
 
     constructor(nome, email, dataNascimento, role, ativo = true) {
         this.#nome = nome
-        this.email = email
+        this.#email = email
         this.dataNascimento = dataNascimento
         this.role = role || 'estudante'
         this.ativo = ativo
     }
 
+    get nome() {
+        return this.#nome
+    }
+
+    getEmail() {
+        return this.#email
+    }
+
+    set nome(nome) {
+        if(nome === '') {
+            throw new Error('Nome inválido')
+        }
+        this.#nome = nome
+    }
+
+    set email(email) {
+        if(!email.includes('@')) {
+            throw new Error('Email inválido')
+        }
+        this.#email = email
+    }
+
     exibirInfos() {
-        return `${this.#nome}, ${this.email}`
+        this.#metodoPrivado()
+        // o método privado só pode ser chamado dentro da classe
+        return `${this.#nome}, ${this.#email}`
     }
 
     #metodoPrivado() {
-        return 'Esse método é privado'
+        console.log('Chamando método privado')
     }
 }
 /*
